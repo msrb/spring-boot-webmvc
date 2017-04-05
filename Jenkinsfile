@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-@Library('github.com/fabric8io/fabric8-pipeline-library@master')
+@Library('github.com/msrb/fabric8-pipeline-library@annotate-build')
 
 def failIfNoTests = ""
 try {
@@ -28,7 +28,7 @@ def utils = new io.fabric8.Utils()
 def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
 
 mavenNode {
-  git 'https://github.com/rawlingsj/spring-boot-webmvc.git'
+  git url: 'https://github.com/msrb/spring-boot-webmvc.git'
   if (utils.isCI()){
     
       mavenCI{}
